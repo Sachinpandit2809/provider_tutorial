@@ -8,6 +8,7 @@ import 'package:provider_tutorial/screens/count_provider_screen.dart';
 import 'package:provider_tutorial/screens/example_one_screen.dart';
 import 'package:provider_tutorial/screens/favourite/favourite_screen.dart';
 import 'package:provider_tutorial/screens/home_screen.dart';
+import 'package:provider_tutorial/screens/my_notifier_screen.dart';
 import 'package:provider_tutorial/screens/statefulwidget_screen.dart';
 import 'package:provider_tutorial/screens/themeChange/dark_theme.dart';
 
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           final themeChanger = Provider.of<ThemeChangerprovider>(context);
 
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             themeMode: themeChanger.themeMode,
             theme: ThemeData(
@@ -41,8 +43,10 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            darkTheme: ThemeData(brightness: Brightness.dark),
-            home: DarkThemeScreen(),
+            darkTheme: ThemeData(
+                brightness: Brightness.dark,
+                appBarTheme: AppBarTheme(color: Colors.pink)),
+            home: MyNotifierScreen(),
           );
         }));
   }
