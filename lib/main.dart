@@ -4,6 +4,8 @@ import 'package:provider_tutorial/provider/count_provider.dart';
 import 'package:provider_tutorial/provider/example_provider.dart';
 import 'package:provider_tutorial/provider/favourite_provider.dart';
 import 'package:provider_tutorial/provider/theme_changerProvider.dart';
+import 'package:provider_tutorial/screens/auth/auth_provider.dart';
+import 'package:provider_tutorial/screens/auth/login_screen.dart';
 import 'package:provider_tutorial/screens/count_provider_screen.dart';
 import 'package:provider_tutorial/screens/example_one_screen.dart';
 import 'package:provider_tutorial/screens/favourite/favourite_screen.dart';
@@ -29,7 +31,8 @@ class MyApp extends StatelessWidget {
           ),
           ChangeNotifierProvider(create: (_) => ExampleOneProvider()),
           ChangeNotifierProvider(create: (_) => FavouriteProvider()),
-          ChangeNotifierProvider(create: (_) => ThemeChangerprovider())
+          ChangeNotifierProvider(create: (_) => ThemeChangerprovider()),
+          ChangeNotifierProvider(create: (_) => AuthProvider())
         ],
         child: Builder(builder: (BuildContext context) {
           final themeChanger = Provider.of<ThemeChangerprovider>(context);
@@ -46,7 +49,7 @@ class MyApp extends StatelessWidget {
             darkTheme: ThemeData(
                 brightness: Brightness.dark,
                 appBarTheme: AppBarTheme(color: Colors.pink)),
-            home: MyNotifierScreen(),
+            home: LoginScreen(),
           );
         }));
   }
